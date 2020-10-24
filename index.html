@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>IO chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -15,6 +15,14 @@
     </style>
   </head>
   <body>
+// get network info for Dogecoin, and display network name and total number of blocks
+<script>
+$.get( "https://sochain.com/api/v2/get_info/DOGE", function( response ) {
+  $( "body" )
+    .append( "Name: " + response.data.name + "<br/>" ) // Dogecoin
+    .append( "Total Blocks: " + response.data.blocks + "</br>"); //  current block count
+}, "json" );
+</script>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
